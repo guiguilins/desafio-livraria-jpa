@@ -1,11 +1,9 @@
 package com.jpa.desafiolivraria.entities;
 
 
-import com.jpa.desafiolivraria.repositories.ImpressoRepository;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 @Data
 @Entity
@@ -23,7 +21,6 @@ public class Impresso {
     }
 
     public Impresso(float frete, int estoque) {
-
         this.frete = frete;
         this.estoque = estoque;
     }
