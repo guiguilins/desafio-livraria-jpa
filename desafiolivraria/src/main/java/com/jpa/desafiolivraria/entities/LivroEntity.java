@@ -16,13 +16,14 @@ public class LivroEntity {
     private String editora;
     private float preco;
     
+
 	public LivroEntity(String titulo, String autores, String editora, float preco) {
 		this.titulo = titulo;
 		this.autores = autores;
 		this.editora = editora;
 		this.preco = preco;
 	}
-    
-    
-    
+
+
+
 }
