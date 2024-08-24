@@ -15,7 +15,10 @@ public class VendaEntity {
 	private int numero;
 	private String cliente;
 	private float valor;
-    
+
+	public VendaEntity() {
+
+	}
 	public VendaEntity(long id, int numVendas, int numero, String cliente, float valor) {
 		this.id = id;
 		this.numVendas = numVendas;

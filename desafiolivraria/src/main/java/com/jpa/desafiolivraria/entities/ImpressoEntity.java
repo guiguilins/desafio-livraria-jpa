@@ -5,19 +5,17 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "impresso")
-public class ImpressoEntity {
+public class ImpressoEntity extends LivroEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private float frete;
     private int estoque;
 
     public ImpressoEntity() {
+        super();
     }
 
-    public ImpressoEntity(float frete, int estoque) {
+    public ImpressoEntity(String titulo, String autores, String editora, float frete, float preco, int estoque) {
+        super(titulo, autores, editora, preco);
         this.frete = frete;
         this.estoque = estoque;
     }
@@ -28,10 +26,7 @@ public class ImpressoEntity {
 
     @Override
     public String toString() {
-        return "Livros impressos {" +
-                "frete=" + getFrete() +
-                ", estoque=" + getEstoque() +
-                '}';
+        return String.format("%s %-10.2f | %-10d |", super.toString(), frete, estoque);
     }
 }
 
