@@ -6,17 +6,19 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "eletronico")
-public class EletronicoEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class EletronicoEntity extends LivroEntity{
     private int tamanho;
 
+    public EletronicoEntity() {
+    }
+
+    public EletronicoEntity(String titulo, String autores, String editora, float preco, int tamanho) {
+        super(titulo, autores, editora, preco);
+        this.tamanho = tamanho;
+    }
 
     @Override
     public String toString() {
-        return "Livro eletronico [" +
-                "tamanho=" + this.tamanho +
-                "Kbps]";
+         return String.format("%s %-10d |", super.toString(), tamanho);
     }
 }

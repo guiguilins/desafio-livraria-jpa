@@ -28,7 +28,7 @@ public class LivroEntity {
 	}
     
 	public String toString() {
-		return "Livro: " + this.titulo + " - " + this.autores + " - " + this.editora + " - " + this.preco;
+		return String.format("| %-20s | %-20s | %-20s | %-10.2f |", titulo, autores, editora, preco);
 	}
     
     
