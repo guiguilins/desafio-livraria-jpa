@@ -17,4 +17,7 @@ public class LivroService {
         return repository.findAll();
     }
 
+    public LivroEntity salvarLivro(LivroEntity livro) {
+        return repository.save(livro);
+    }
 }
