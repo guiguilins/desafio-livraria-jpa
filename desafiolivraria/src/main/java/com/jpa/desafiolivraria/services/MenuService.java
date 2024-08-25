@@ -1,6 +1,9 @@
 package com.jpa.desafiolivraria.services;
 
+import com.jpa.desafiolivraria.DesafiolivrariaApplication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import com.jpa.desafiolivraria.entities.EletronicoEntity;
@@ -15,6 +18,7 @@ public class MenuService {
 
     @Autowired
     private LivrariaVirtualService livrariaService;
+    private ApplicationContext applicationContext;
 
     Scanner scanner = new Scanner(System.in);
 
@@ -49,6 +53,7 @@ public class MenuService {
                 case 0:
                     rodando = false;
                     System.out.println("\nEncerrando o programa.");
+                    encerrarAplicacao();
                     break;
                 default:
                     System.out.println("\nOpção Inválida.");
@@ -136,5 +141,8 @@ public class MenuService {
         } else {
             System.out.println("\nOpção inválida. Retornando ao menu principal.");
         }
+    }
+    private void encerrarAplicacao(){
+        SpringApplication.exit(applicationContext,() ->0);
     }
 }
