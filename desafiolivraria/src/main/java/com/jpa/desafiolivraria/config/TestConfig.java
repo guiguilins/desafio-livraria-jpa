@@ -6,6 +6,7 @@ import com.jpa.desafiolivraria.entities.LivroEntity;
 import com.jpa.desafiolivraria.entities.VendaEntity;
 import com.jpa.desafiolivraria.repositories.LivroRepository;
 import com.jpa.desafiolivraria.repositories.VendaRepository;
+import com.jpa.desafiolivraria.services.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,9 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     public LivroRepository repository;
 
+    @Autowired
+    public LivroService service;
+
     @Override
     public void run(String... args) throws Exception {
         LivroEntity impresso = new ImpressoEntity("Harry Potter", "J. K. Rowling", "Rocco", 150, 30, 50);
@@ -27,6 +31,9 @@ public class TestConfig implements CommandLineRunner {
 
 
         repository.saveAll(Arrays.asList(impresso, eletronico));
+
+        service.listarLivros();
+
 
         System.out.println(impresso);
         System.out.println(eletronico);
