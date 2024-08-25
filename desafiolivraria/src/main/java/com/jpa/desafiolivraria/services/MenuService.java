@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import com.jpa.desafiolivraria.entities.EletronicoEntity;
 import com.jpa.desafiolivraria.entities.ImpressoEntity;
-import com.jpa.desafiolivraria.entities.LivroEntity;
 
 import java.util.List;
 import java.util.Scanner;
