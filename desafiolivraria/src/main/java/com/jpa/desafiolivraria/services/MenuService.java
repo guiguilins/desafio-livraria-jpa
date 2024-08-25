@@ -1,6 +1,5 @@
 package com.jpa.desafiolivraria.services;
 
-import com.jpa.desafiolivraria.DesafiolivrariaApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
