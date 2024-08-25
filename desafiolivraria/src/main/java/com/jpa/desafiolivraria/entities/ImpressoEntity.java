@@ -2,18 +2,15 @@ package com.jpa.desafiolivraria.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class ImpressoEntity extends LivroEntity {
 
     private float frete;
     private int estoque;
-
-    
-    public ImpressoEntity() {
-        super();
-    }
 
     public ImpressoEntity(String titulo, String autores, String editora, float frete, float preco, int estoque) {
         super(titulo, autores, editora, preco);

@@ -3,14 +3,13 @@ package com.jpa.desafiolivraria.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-public class EletronicoEntity extends LivroEntity{
+@NoArgsConstructor
+public class EletronicoEntity extends LivroEntity {
     private int tamanho;
-
-    public EletronicoEntity() {
-    }
 
     public EletronicoEntity(String titulo, String autores, String editora, float preco, int tamanho) {
         super(titulo, autores, editora, preco);
