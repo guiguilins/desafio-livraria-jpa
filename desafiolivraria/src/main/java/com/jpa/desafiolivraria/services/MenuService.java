@@ -1,6 +1,5 @@
 package com.jpa.desafiolivraria.services;
 
-import com.jpa.desafiolivraria.DesafiolivrariaApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
@@ -41,13 +40,13 @@ public class MenuService {
                     cadastrarLivro();
                     break;
                 case 2:
-                    
+
                     break;
                 case 3:
                     listarLivro();
                     break;
                 case 4:
-                    
+
                     break;
                 case 0:
                     rodando = false;
@@ -141,7 +140,8 @@ public class MenuService {
             System.out.println("\nOpção inválida. Retornando ao menu principal.");
         }
     }
-    private void encerrarAplicacao(){
-        SpringApplication.exit(applicationContext,() ->0);
+
+    private void encerrarAplicacao() {
+        SpringApplication.exit(applicationContext, () -> 0);
     }
 }

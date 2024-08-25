@@ -1,5 +1,7 @@
 package com.jpa.desafiolivraria.controller;
 
+import com.jpa.desafiolivraria.entities.EletronicoEntity;
+import com.jpa.desafiolivraria.entities.ImpressoEntity;
 import com.jpa.desafiolivraria.entities.LivroEntity;
 import com.jpa.desafiolivraria.services.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +25,16 @@ public class LivroController {
         return ResponseEntity.ok().body(list);
     }
 
+    @GetMapping(value = "/impressos")
+    public ResponseEntity<List<ImpressoEntity>> listarLivrosImpressos() {
+        List<ImpressoEntity> list = service.listarLivrosImpressos();
+        return ResponseEntity.ok().body(list);
+    }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<LivroEntity> buscarPorId(@PathVariable Long id) {
-        LivroEntity obj = service.buscarPorId(id);
-        return ResponseEntity.ok().body(obj);
+    @GetMapping(value = "/eletronicos")
+    public ResponseEntity<List<EletronicoEntity>> listarLivrosEletronicos() {
+        List<EletronicoEntity> list = service.listarLivrosEletronicos();
+        return ResponseEntity.ok().body(list);
     }
 
     @PostMapping
