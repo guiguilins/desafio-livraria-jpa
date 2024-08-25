@@ -9,13 +9,14 @@ import org.springframework.stereotype.Component;
 import com.jpa.desafiolivraria.entities.EletronicoEntity;
 import com.jpa.desafiolivraria.entities.ImpressoEntity;
 
+import java.util.List;
 import java.util.Scanner;
 
 @Component
 public class MenuService {
 
     @Autowired
-    private LivroService livroService;
+    private LivrariaVirtualService livrariaService;
     private ApplicationContext applicationContext;
 
     Scanner scanner = new Scanner(System.in);
@@ -43,18 +44,18 @@ public class MenuService {
                     
                     break;
                 case 3:
-                    
+                    listarLivro();
                     break;
                 case 4:
                     
                     break;
                 case 0:
                     rodando = false;
-                    System.out.println("Encerrando o programa.");
+                    System.out.println("\nEncerrando o programa.");
                     encerrarAplicacao();
                     break;
                 default:
-                    System.out.println("Opção inválida.");
+                    System.out.println("\nOpção Inválida.");
             }
         }
 
@@ -65,9 +66,14 @@ public class MenuService {
         System.out.println("\nEscolha o tipo de livro:");
         System.out.println("1. Impresso");
         System.out.println("2. Eletrônico");
+        System.out.println("0. Voltar");
         System.out.print("Opção: ");
         int tipoLivro = scanner.nextInt();
         scanner.nextLine();
+
+        if (tipoLivro < 1 || tipoLivro > 2) {
+            return;
+        }
 
         System.out.print("Título: ");
         String titulo = scanner.nextLine();
@@ -87,7 +93,7 @@ public class MenuService {
             scanner.nextLine();
 
             ImpressoEntity livroImpresso = new ImpressoEntity(titulo, autores, editora, frete, preco, estoque);
-            livroService.salvarLivro(livroImpresso);
+            livrariaService.cadastrarLivro(livroImpresso);
 
             System.out.println("\nLivro impresso cadastrado com sucesso!");
         } else if (tipoLivro == 2) {
@@ -96,11 +102,43 @@ public class MenuService {
             scanner.nextLine();
 
             EletronicoEntity livroEletronico = new EletronicoEntity(titulo, autores, editora, preco, tamanho);
-            livroService.salvarLivro(livroEletronico);
+            livrariaService.cadastrarLivro(livroEletronico);
 
             System.out.println("\nLivro eletrônico cadastrado com sucesso!");
+        }
+    }
+
+    private void listarLivro() {
+        System.out.println("\nEscolha o tipo de livro para listar:");
+        System.out.println("1. Impresso");
+        System.out.println("2. Eletrônico");
+        System.out.print("Opção: ");
+        String tipoLivro = scanner.nextLine();
+
+        if (tipoLivro.equals("1")) {
+            List<ImpressoEntity> livrosImpressos = livrariaService.listarLivrosImpressos();
+            if (livrosImpressos.isEmpty()) {
+                System.out.println("\nNenhum livro impresso cadastrado.");
+                return;
+            }
+
+            System.out.println("\nLista de Livros Impressos:\n");
+            System.out.println("| Título               | Autores              | Editora              | Preço      | Frete      | Estoque    |");
+            System.out.println("-------------------------------------------------------------------------------------------------------------");
+            livrosImpressos.forEach(System.out::println);
+        } else if (tipoLivro.equals("2")) {
+            List<EletronicoEntity> livrosEletronicos = livrariaService.listarLivrosEletronicos();
+            if (livrosEletronicos.isEmpty()) {
+                System.out.println("\nNenhum livro eletrônico cadastrado.");
+                return;
+            }
+
+            System.out.println("\nLista de Livros Eletrônicos:\n");
+            System.out.println("| Título               | Autores              | Editora              | Preço      | Tamanho    |");
+            System.out.println("------------------------------------------------------------------------------------------------");
+            livrosEletronicos.forEach(System.out::println);
         } else {
-            System.out.println("Opção inválida.");
+            System.out.println("\nOpção inválida. Retornando ao menu principal.");
         }
     }
     private void encerrarAplicacao(){
