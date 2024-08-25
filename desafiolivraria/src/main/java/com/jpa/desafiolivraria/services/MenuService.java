@@ -105,15 +105,30 @@ public class MenuService {
     }
 
     private void listarLivros() {
-        List<LivroEntity> listaLivros = livroService.listarLivros();
-        if (listaLivros.isEmpty()) {
-            System.out.println("\nNenhum livro cadastrado.");
+        System.out.println("\nEscolha o tipo de livro para listar:");
+        System.out.println("1. Impresso");
+        System.out.println("2. Eletrônico");
+        System.out.print("Opção: ");
+        String tipoLivro = scanner.nextLine();
+
+        List<LivroEntity> livros = livroService.listarLivros();
+
+        if (tipoLivro.equals("1")) {
+            System.out.println("\nLista de Livros Impressos:\n");
+            System.out.println("| Título               | Autores              | Editora              | Preço      | Frete      | Estoque    |");
+            System.out.println("-------------------------------------------------------------------------------------------------------------");
+            livros.stream()
+                .filter(livro -> livro instanceof ImpressoEntity)
+                .forEach(System.out::println);
+        } else if (tipoLivro.equals("2")) {
+            System.out.println("\nLista de Livros Eletrônicos:\n");
+            System.out.println("| Título               | Autores              | Editora              | Preço      | Tamanho    |");
+            System.out.println("------------------------------------------------------------------------------------------------");
+            livros.stream()
+                .filter(livro -> livro instanceof EletronicoEntity)
+                .forEach(System.out::println);
         } else {
-            System.out.println("\nLista de Livros:");
-            listaLivros.forEach(livro -> {
-                System.out.println(livro.toString());
-                
-            });
+            System.out.println("Opção inválida. Retornando ao menu principal.");
         }
     }
 }

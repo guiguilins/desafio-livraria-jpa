@@ -67,13 +67,7 @@ public class LivroEntity {
 
 	@Override
     public String toString() {
-        return String.format(
-            "\nTítulo: %s\n" +
-            "Autor(es): %s\n" +
-            "Editora: %s\n" +
-            "Preço: %.2f\n",
-            titulo, autores, editora, preco
-        );
+        return String.format("| %-20s | %-20s | %-20s | %-10.2f |", titulo, autores, editora, preco);
     }
 	
 	
