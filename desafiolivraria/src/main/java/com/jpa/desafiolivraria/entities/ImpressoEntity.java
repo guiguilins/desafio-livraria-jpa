@@ -10,6 +10,7 @@ public class ImpressoEntity extends LivroEntity {
     private float frete;
     private int estoque;
 
+    
     public ImpressoEntity() {
         super();
     }
