@@ -40,13 +40,13 @@ public class MenuService {
                     cadastrarLivro();
                     break;
                 case 2:
-                    
+
                     break;
                 case 3:
                     listarLivro();
                     break;
                 case 4:
-                    
+
                     break;
                 case 0:
                     rodando = false;
@@ -140,7 +140,8 @@ public class MenuService {
             System.out.println("\nOpção inválida. Retornando ao menu principal.");
         }
     }
-    private void encerrarAplicacao(){
-        SpringApplication.exit(applicationContext,() ->0);
+
+    private void encerrarAplicacao() {
+        SpringApplication.exit(applicationContext, () -> 0);
     }
 }
