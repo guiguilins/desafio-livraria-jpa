@@ -2,10 +2,12 @@ package com.jpa.desafiolivraria.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name = "venda")
+@NoArgsConstructor
 public class VendaEntity {
 
 	@Id
