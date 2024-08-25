@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "livro")
 @NoArgsConstructor
-public class LivroEntity {
+public abstract class LivroEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
