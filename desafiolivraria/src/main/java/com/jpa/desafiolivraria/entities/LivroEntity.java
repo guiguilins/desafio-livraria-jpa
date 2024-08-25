@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "livro")
-
 public class LivroEntity {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +23,7 @@ public class LivroEntity {
 		this.editora = editora;
 		this.preco = preco;
 	}
-    
-	public String toString() {
-		return String.format("| %-20s | %-20s | %-20s | %-10.2f |", titulo, autores, editora, preco);
-	}
+
 
 	public Long getId() {
 		return id;
@@ -67,6 +63,11 @@ public class LivroEntity {
 
 	public void setPreco(float preco) {
 		this.preco = preco;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("| %-20s | %-20s | %-20s | %-10.2f |", titulo, autores, editora, preco);
 	}
 	
 	
