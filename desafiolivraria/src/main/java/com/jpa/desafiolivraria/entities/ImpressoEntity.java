@@ -22,6 +22,7 @@ public class ImpressoEntity extends LivroEntity {
         estoque -= 1;
     }
 
+
     @Override
     public String toString() {
         return String.format("%s %-10.2f | %-10d |", super.toString(), frete, estoque);
