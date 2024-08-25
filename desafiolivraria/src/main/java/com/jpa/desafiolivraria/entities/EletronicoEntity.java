@@ -19,6 +19,11 @@ public class EletronicoEntity extends LivroEntity{
 
     @Override
     public String toString() {
-         return String.format("%s %-10d |", super.toString(), tamanho);
+        return String.format(
+            "%s" +
+            "Tamanho: %d\n" +
+            "-----------------------------------",
+            super.toString(), tamanho
+        );
     }
 }

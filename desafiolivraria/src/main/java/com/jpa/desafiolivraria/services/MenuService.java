@@ -5,7 +5,9 @@ import org.springframework.stereotype.Component;
 
 import com.jpa.desafiolivraria.entities.EletronicoEntity;
 import com.jpa.desafiolivraria.entities.ImpressoEntity;
+import com.jpa.desafiolivraria.entities.LivroEntity;
 
+import java.util.List;
 import java.util.Scanner;
 
 @Component
@@ -39,17 +41,17 @@ public class MenuService {
                     
                     break;
                 case 3:
-                    
+                    listarLivros();
                     break;
                 case 4:
                     
                     break;
                 case 0:
                     rodando = false;
-                    System.out.println("Encerrando o programa.");
+                    System.out.println("\nEncerrando o programa.");
                     break;
                 default:
-                    System.out.println("Opção inválida.");
+                    System.out.println("\nOpção Inválida.");
             }
         }
 
@@ -60,9 +62,14 @@ public class MenuService {
         System.out.println("\nEscolha o tipo de livro:");
         System.out.println("1. Impresso");
         System.out.println("2. Eletrônico");
+        System.out.println("0. Voltar");
         System.out.print("Opção: ");
         int tipoLivro = scanner.nextInt();
         scanner.nextLine();
+
+        if (tipoLivro < 1 || tipoLivro > 2) {
+            return;
+        }
 
         System.out.print("Título: ");
         String titulo = scanner.nextLine();
@@ -94,8 +101,19 @@ public class MenuService {
             livroService.salvarLivro(livroEletronico);
 
             System.out.println("\nLivro eletrônico cadastrado com sucesso!");
+        }
+    }
+
+    private void listarLivros() {
+        List<LivroEntity> listaLivros = livroService.listarLivros();
+        if (listaLivros.isEmpty()) {
+            System.out.println("\nNenhum livro cadastrado.");
         } else {
-            System.out.println("Opção inválida.");
+            System.out.println("\nLista de Livros:");
+            listaLivros.forEach(livro -> {
+                System.out.println(livro.toString());
+                
+            });
         }
     }
 }

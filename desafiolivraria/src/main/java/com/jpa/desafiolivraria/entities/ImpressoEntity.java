@@ -27,7 +27,13 @@ public class ImpressoEntity extends LivroEntity {
 
     @Override
     public String toString() {
-        return String.format("%s %-10.2f | %-10d |", super.toString(), frete, estoque);
+        return String.format(
+            "%s" +
+            "Frete: %.2f\n" +
+            "Estoque: %d\n" +
+            "-----------------------------------",
+            super.toString(), frete, estoque
+        );
     }
 }
 
