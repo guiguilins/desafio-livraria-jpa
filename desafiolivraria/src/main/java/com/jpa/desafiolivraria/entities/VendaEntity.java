@@ -1,5 +1,7 @@
 package com.jpa.desafiolivraria.entities;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,38 +14,26 @@ public class VendaEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	private int numVendas;
+	private Long id;
+	private static int numVendas = 1;
 	private int numero;
 	private String cliente;
 	private float valor;
 
-	@ManyToOne
-	private LivroEntity titulo;
+	@OneToMany
+	private List<LivroEntity> livros;
 
-	public VendaEntity(long id, int numVendas, int numero, String cliente, float valor) {
-		this.id = id;
-		this.numVendas = numVendas;
-		this.numero = numero;
+	public VendaEntity(String cliente, float valor) {
 		this.cliente = cliente;
 		this.valor = valor;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
+		numVendas++;
+		this.numero = numVendas;
 	}
 
 	public int getNumVendas() {
 		return numVendas;
 	}
 
-	public void setNumVendas(int numVendas) {
-		this.numVendas = numVendas;
-	}
 
 	public int getNumero() {
 		return numero;
@@ -69,12 +59,20 @@ public class VendaEntity {
 		this.valor = valor;
 	}
 
-	public LivroEntity getTitulo() {
-		return titulo;
+	public List<LivroEntity> getLivros() {
+		return livros;
 	}
 
-	public void setTitulo(LivroEntity titulo) {
-		this.titulo = titulo;
+	public void setLivros(List<LivroEntity> titulo) {
+		this.livros = titulo;
+	}
+	
+	public void addLivro(LivroEntity livro, int index) {
+		if (index >= 0 && index <= livros.size()) {
+            livros.add(index, livro);
+        } else {
+        	livros.add(livro);
+        }
 	}
 
 	@Override
@@ -85,7 +83,7 @@ public class VendaEntity {
 				", numero=" + numero +
 				", cliente='" + cliente + '\'' +
 				", valor=" + valor +
-				", titulo=" + titulo +
+				", titulo=" + livros +
 				'}';
 	}
 }
