@@ -1,0 +1,21 @@
+Harry Potter;J. K. Rowling;Rocco;150;30;50;IMPRESSO
+Senhor dos Anéis;J. R. R. Tolkien;Rocco;200;2;;ELETRONICO
+Dom Casmurro;Machado de Assis;Livraria ABC;180;40;47;IMPRESSO
+O Guia do Mochileiro das Galáxias;Douglas Adams;Editora XYZ;240;25;;ELETRONICO
+1984;George Orwell;Editora 21;320;35;;ELETRONICO
+A Moreninha;Joaquim Manuel de Macedo;Editora Novo Século;120;28;45;IMPRESSO
+O Pequeno Príncipe;Antoine de Saint-Exupéry;Editora ABC;96;15;35;IMPRESSO
+Pride and Prejudice;Jane Austen;Penguin Classics;300;20;;ELETRONICO
+A Revolução dos Bichos;George Orwell;Editora 33;144;22;;ELETRONICO
+O Sol é Para Todos;Harper Lee;HarperCollins;336;50;40;IMPRESSO
+O Hobbit;J. R. R. Tolkien;HarperCollins;310;40;;ELETRONICO
+Moby Dick;Herman Melville;Editora Clássicos;635;55;45;IMPRESSO
+A Caverna;José Saramago;Companhia das Letras;296;45;;ELETRONICO
+O Nome do Vento;Patrick Rothfuss;Editora Intrínseca;662;60;;ELETRONICO
+A Menina que Roubava Livros;Markus Zusak;Editora Zahar;552;35;40;IMPRESSO
+Os Miseráveis;Victor Hugo;L&PM;1232;75;;ELETRONICO
+Neuromancer;William Gibson;Editora Aleph;288;20;;ELETRONICO
+O Senhor das Moscas;William Golding;Rocco;224;30;;ELETRONICO
+O Código Da Vinci;Dan Brown;Editora Sextante;689;50;;ELETRONICO
+A Guerra dos Tronos;George R. R. Martin;Leya;720;40;;ELETRONICO
+A História Sem Fim;Michael Ende;Editora Bertrand Brasil;384;25;50;IMPRESSO

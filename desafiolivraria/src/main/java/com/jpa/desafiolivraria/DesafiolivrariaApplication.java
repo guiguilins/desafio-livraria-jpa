@@ -1,5 +1,6 @@
 package com.jpa.desafiolivraria;
 
+import com.jpa.desafiolivraria.config.TestConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,7 +23,8 @@ public class DesafiolivrariaApplication {
 	@Bean
     public CommandLineRunner run(ApplicationContext context) {
         return args -> {
-            menuService.iniciarMenu();
+			context.getBean(TestConfig.class).run(args);
+			menuService.iniciarMenu();
         };
     }
 }
