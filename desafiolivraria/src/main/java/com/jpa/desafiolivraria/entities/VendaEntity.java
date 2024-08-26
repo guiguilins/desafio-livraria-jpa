@@ -77,13 +77,14 @@ public class VendaEntity {
 
 	@Override
 	public String toString() {
-		return "VendaEntity{" +
-				"id=" + id +
-				", numVendas=" + numVendas +
-				", numero=" + numero +
-				", cliente='" + cliente + '\'' +
-				", valor=" + valor +
-				", titulo=" + livros +
-				'}';
+//		return "| "
+//				+ numero + "              |"
+//				+ valor + "              |"
+//				+ id + "              |"
+//				+ cliente + "              |";
+
+		return String.format("| %-20d | %-10.2f | %-20d | %-20s |", numero, valor, id, cliente);
+
+
 	}
 }
