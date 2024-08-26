@@ -32,7 +32,7 @@ public class TestConfig implements CommandLineRunner {
         Resource resource = new ClassPathResource("Livros/livros.txt");
         BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()));
 
-        String line;
+       String line;
         List<LivroEntity> livros = new ArrayList<>();
         while ((line = reader.readLine()) != null) {
             String[] data = line.split(";");
@@ -47,7 +47,6 @@ public class TestConfig implements CommandLineRunner {
         }
         // Salva todos os livros de uma vez
         repository.saveAll(livros);
-
         // Chama o método listarLivros, se necessário
         service.listarLivros();
     }

@@ -1,5 +1,6 @@
 package com.jpa.desafiolivraria.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -15,13 +16,13 @@ public class VendaEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private static int numVendas = 1;
+	private static int numVendas = 0;
 	private int numero;
 	private String cliente;
 	private float valor;
 
 	@OneToMany
-	private List<LivroEntity> livros;
+	private List<LivroEntity> livros = new ArrayList<>();
 
 	public VendaEntity(String cliente, float valor) {
 		this.cliente = cliente;
@@ -33,8 +34,6 @@ public class VendaEntity {
 	public int getNumVendas() {
 		return numVendas;
 	}
-
-
 	public int getNumero() {
 		return numero;
 	}
