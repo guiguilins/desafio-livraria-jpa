@@ -51,7 +51,7 @@ public class MenuService {
                     listarLivro();
                     break;
                 case 4:
-
+                    listarVendas();
                     break;
                 case 0:
                     rodando = false;
@@ -65,6 +65,23 @@ public class MenuService {
 
         scanner.close();
     }
+
+    private void listarVendas() {
+        System.out.println("\nListagem dos Livros Vendidos:");
+        List<VendaEntity> livrosVendidos = livrariaService.listarVendas();
+
+        if (livrosVendidos.isEmpty()) {
+            System.out.println("\nNenhum livro vendido.");
+            return;
+        }
+
+        System.out.println("\n Vendas realizadas:\n");
+        System.out.println("| Número               | Valor      | Id                   | Cliente              |");
+        System.out.println("-----------------------------------------------------------------------------------");
+        livrosVendidos.forEach(System.out::println);
+
+    }
+
 
     private void realizarVenda() {
     	System.out.print("\nNome do cliente: ");
