@@ -3,16 +3,19 @@ package com.jpa.desafiolivraria.config;
 import com.jpa.desafiolivraria.entities.EletronicoEntity;
 import com.jpa.desafiolivraria.entities.ImpressoEntity;
 import com.jpa.desafiolivraria.entities.LivroEntity;
-import com.jpa.desafiolivraria.entities.VendaEntity;
 import com.jpa.desafiolivraria.repositories.LivroRepository;
-import com.jpa.desafiolivraria.repositories.VendaRepository;
 import com.jpa.desafiolivraria.services.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 @Profile("test")
@@ -24,19 +27,28 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     public LivroService service;
 
-    @Override
     public void run(String... args) throws Exception {
-        LivroEntity impresso = new ImpressoEntity("Harry Potter", "J. K. Rowling", "Rocco", 150, 30, 50);
-        LivroEntity eletronico = new EletronicoEntity("Senhor dos Anéis", "J. R. R. Tolkien", "Rocco", 200, 2);
+        // Lê o arquivo do classpath
+        Resource resource = new ClassPathResource("Livros/livros.txt");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()));
 
+        String line;
+        List<LivroEntity> livros = new ArrayList<>();
+        while ((line = reader.readLine()) != null) {
+            String[] data = line.split(";");
+            String tipo = data[6];
+            if ("IMPRESSO".equalsIgnoreCase(tipo)) {
+                LivroEntity impresso = new ImpressoEntity(data[0], data[1], data[2], (float) Integer.parseInt(data[3]), (float) Double.parseDouble(data[4]), (int) Double.parseDouble(data[5]));
+                livros.add(impresso);
+            } else if ("ELETRONICO".equalsIgnoreCase(tipo)) {
+                LivroEntity eletronico = new EletronicoEntity(data[0], data[1], data[2], (float) Integer.parseInt(data[3]), (int) Double.parseDouble(data[4]));
+                livros.add(eletronico);
+            }
+        }
+        // Salva todos os livros de uma vez
+        repository.saveAll(livros);
 
-        repository.saveAll(Arrays.asList(impresso, eletronico));
-
+        // Chama o método listarLivros, se necessário
         service.listarLivros();
-
-
-        System.out.println(impresso);
-        System.out.println(eletronico);
-
     }
 }
