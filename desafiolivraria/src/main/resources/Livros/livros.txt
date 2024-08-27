@@ -1,7 +1,7 @@
 Harry Potter;J. K. Rowling;Rocco;30;150;50;IMPRESSO
 Senhor dos Anéis;J. R. R. Tolkien;Rocco;200;2;;ELETRONICO
 Dom Casmurro;Machado de Assis;Livraria ABC;40;180;47;IMPRESSO
-O Guia do Mochileiro das Galáxias;Douglas Adams;Editora XYZ;240;25;;ELETRONICO
+Mochileiro das Galáxias;Douglas Adams;Editora XYZ;240;25;;ELETRONICO
 1984;George Orwell;Editora 21;320;35;;ELETRONICO
 A Moreninha;Joaquim Manuel de Macedo;Editora Novo Século;28;120;45;IMPRESSO
 O Pequeno Príncipe;Antoine de Saint-Exupéry;Editora ABC;15;96;35;IMPRESSO

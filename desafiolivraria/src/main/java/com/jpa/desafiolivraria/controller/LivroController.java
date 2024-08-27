@@ -36,7 +36,6 @@ public class LivroController {
         List<EletronicoEntity> list = service.listarLivrosEletronicos();
         return ResponseEntity.ok().body(list);
     }
-
     @PostMapping
     public ResponseEntity<LivroEntity> salvarLivro(@RequestBody LivroEntity obj) {
         obj = service.salvarLivro(obj);
