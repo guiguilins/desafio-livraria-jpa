@@ -10,8 +10,6 @@ import com.jpa.desafiolivraria.entities.ImpressoEntity;
 import com.jpa.desafiolivraria.entities.LivroEntity;
 import com.jpa.desafiolivraria.entities.VendaEntity;
 
-import java.util.ArrayList;
-
 import java.util.List;
 import java.util.Scanner;
 
