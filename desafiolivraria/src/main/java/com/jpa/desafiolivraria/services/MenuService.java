@@ -10,6 +10,8 @@ import com.jpa.desafiolivraria.entities.ImpressoEntity;
 import com.jpa.desafiolivraria.entities.LivroEntity;
 import com.jpa.desafiolivraria.entities.VendaEntity;
 
+import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -161,8 +163,9 @@ public class MenuService {
 
         venda.setValor(valorFinal);
         livrariaService.realizarVenda(venda);
+        venda.listarLivros(venda);
+        System.out.println();
         System.out.println("Obrigado pela compra!");
-
     }
 
     private void exibirLivros(List<? extends LivroEntity> livros) {
@@ -170,6 +173,8 @@ public class MenuService {
 		       System.out.println((i + 1) + ": " + livros.get(i).getTitulo());
 		   }
 	}
+
+
 
 	private void cadastrarLivro() {
         System.out.println("\nEscolha o tipo de livro:");
@@ -200,6 +205,7 @@ public class MenuService {
             System.out.print("Estoque: ");
             int estoque = scanner.nextInt();
             scanner.nextLine();
+
             ImpressoEntity livroImpresso = new ImpressoEntity(titulo, autores, editora, frete, preco, estoque);
             livrariaService.cadastrarLivro(livroImpresso);
 

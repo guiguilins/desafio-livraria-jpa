@@ -74,6 +74,21 @@ public class VendaEntity {
         }
 	}
 
+	public void listarLivros(VendaEntity venda) {
+		List<LivroEntity> livrosDaVenda = venda.getLivros();
+
+		if (livrosDaVenda.isEmpty()) {
+			System.out.println("Nenhum livro foi adicionado a esta venda.");
+		} else {
+			System.out.println("Livros nesta venda:");
+			for (int i = 0; i < livrosDaVenda.size(); i++) {
+				LivroEntity livro = livrosDaVenda.get(i);
+				System.out.println((i + 1) + ": " + livro.getTitulo() + " - Preço: " + livro.getPreco());
+			}
+		}
+	}
+
+
 	@Override
 	public String toString() {
 //		return "| "
