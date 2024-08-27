@@ -202,7 +202,6 @@ public class MenuService {
             System.out.print("Estoque: ");
             int estoque = scanner.nextInt();
             scanner.nextLine();
-
             ImpressoEntity livroImpresso = new ImpressoEntity(titulo, autores, editora, frete, preco, estoque);
             livrariaService.cadastrarLivro(livroImpresso);
 
