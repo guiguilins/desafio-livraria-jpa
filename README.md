@@ -1,4 +1,14 @@
-# Livraria Virtual
+# Livraria Virtual - Squad 10
+
+### Participantes
+
+- Gerson Fragoso
+- Guilherme
+- João Victor
+- Karen
+- Daniel
+- Samuel
+
 
 ## Sumário
 
@@ -7,6 +17,8 @@
 - [Instalação e Configuração](#instalação-e-configuração)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Funcionalidades](#funcionalidades)
+- [Como nos organizamos](#funcionalidades)
+
 
 ## Introdução
 
@@ -19,15 +31,6 @@ O projeto proposto foi desenvolver uma livraria utilizando JPA. Após fazer algu
 - **Spring Data JPA**: para persistência de dados
 - **Maven**: para gerenciamento de dependências
 - **H2**: Banco de dados
-
-## Instalação e Configuração
-
-- **É necessário ter o H2 instalado.**
-- **Para acessar o site, entre em localhost:8080/h2-console**
-- **As configurações de login são as seguintes:**
-
-![Screenshot_88](https://github.com/user-attachments/assets/44e485cd-18f6-4ecc-a86a-da4eead507fe)
-
 
 ### Pré-requisitos
 
@@ -48,3 +51,9 @@ Como mostrado acima, dividimos nosso projeto em pacotes para manter a arquitetur
 - **`realizarVenda`**: Realizar a venda de um ou mais livros de acordo com a escolha do usuário.
 - **`listarLivro`**: Permite ao usuário optar por ver todos os livros, apenas os livros impressos ou apenas os livros eletrônicos.
 - **`listarVendas`**: Permite ao lojista ver todas as vendas realizadas.
+
+## Como nos organizamos
+
+- Nesse projeto, atuamos como um squad aplicando `scrum` e metodos ageis. Realizamos um planejamento, onde definimos e quebramos as tarefas e criamos nosso backlog. Após isso, com o backlog criado, começamos a pegar as tarefas e a desenvolver. Também realizamos reuniões diárias no estilo de um daily para discutir impedimentos ou falar sobre o projeto em si. E no final, nosso quadro kanban ficou assim:
+![image](https://github.com/user-attachments/assets/f31d79fc-04c4-4f8a-957a-aaaa62152792)
+
