@@ -1,7 +1,6 @@
 package com.jpa.desafiolivraria.services;
 
-import com.jpa.desafiolivraria.entities.ImpressoEntity;
-import com.jpa.desafiolivraria.entities.LivroEntity;
+
 import com.jpa.desafiolivraria.entities.VendaEntity;
 import com.jpa.desafiolivraria.repositories.VendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

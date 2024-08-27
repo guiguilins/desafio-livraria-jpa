@@ -28,10 +28,8 @@ public class TestConfig implements CommandLineRunner {
     public LivroService service;
 
     public void run(String... args) throws Exception {
-        // Lê o arquivo do classpath
         Resource resource = new ClassPathResource("Livros/livros.txt");
         BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()));
-
        String line;
         List<LivroEntity> livros = new ArrayList<>();
         while ((line = reader.readLine()) != null) {
@@ -45,9 +43,7 @@ public class TestConfig implements CommandLineRunner {
                 livros.add(eletronico);
             }
         }
-        // Salva todos os livros de uma vez
         repository.saveAll(livros);
-        // Chama o método listarLivros, se necessário
         service.listarLivros();
     }
 }
