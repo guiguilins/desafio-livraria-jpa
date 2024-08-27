@@ -163,8 +163,9 @@ public class MenuService {
 
         venda.setValor(valorFinal);
         livrariaService.realizarVenda(venda);
+        exibirLivrosDaVenda(venda);
+        System.out.println();
         System.out.println("Obrigado pela compra!");
-
     }
 
     private void exibirLivros(List<? extends LivroEntity> livros) {
@@ -172,6 +173,20 @@ public class MenuService {
 		       System.out.println((i + 1) + ": " + livros.get(i).getTitulo());
 		   }
 	}
+
+    public void exibirLivrosDaVenda(VendaEntity venda) {
+        List<LivroEntity> livrosDaVenda = venda.getLivros();
+
+        if (livrosDaVenda.isEmpty()) {
+            System.out.println("Nenhum livro foi adicionado a esta venda.");
+        } else {
+            System.out.println("Livros nesta venda:");
+            for (int i = 0; i < livrosDaVenda.size(); i++) {
+                LivroEntity livro = livrosDaVenda.get(i);
+                System.out.println((i + 1) + ": " + livro.getTitulo() + " - Preço: " + livro.getPreco());
+            }
+        }
+    }
 
 	private void cadastrarLivro() {
         System.out.println("\nEscolha o tipo de livro:");
