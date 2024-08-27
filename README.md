@@ -31,6 +31,13 @@ O projeto proposto foi desenvolver uma livraria utilizando JPA. Após fazer algu
 - **Spring Data JPA**: para persistência de dados
 - **Maven**: para gerenciamento de dependências
 - **H2**: Banco de dados
+## Instalação e Configuração
+
+- **É necessário ter o H2 instalado.**
+- **Para acessar o site, entre em localhost:8080/h2-console**
+- **As configurações de login são as seguintes:**
+
+![Screenshot_88](https://github.com/user-attachments/assets/44e485cd-18f6-4ecc-a86a-da4eead507fe)
 
 ### Pré-requisitos
 
