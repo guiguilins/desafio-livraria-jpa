@@ -218,6 +218,14 @@ public class MenuService {
             int estoque = scanner.nextInt();
             scanner.nextLine();
 
+            List<ImpressoEntity> listaLivros = livrariaService.listarLivrosImpressos();
+            for(ImpressoEntity livros : listaLivros) {
+                if (livros.getTitulo().toLowerCase().equals(titulo.toLowerCase())) {
+                    System.out.println("\nEsse livro impresso já está cadastrado!");
+                    return;
+                }
+            }
+
             ImpressoEntity livroImpresso = new ImpressoEntity(titulo, autores, editora, frete, preco, estoque);
             livrariaService.cadastrarLivro(livroImpresso);
 
@@ -226,6 +234,14 @@ public class MenuService {
             System.out.print("Tamanho: ");
             int tamanho = scanner.nextInt();
             scanner.nextLine();
+
+            List<EletronicoEntity> listaLivros = livrariaService.listarLivrosEletronicos();
+            for(EletronicoEntity livros : listaLivros) {
+                if (livros.getTitulo().toLowerCase().equals(titulo.toLowerCase())) {
+                    System.out.println("\nEsse livro eletrônico já está cadastrado!");
+                    return;
+                }
+            }
 
             EletronicoEntity livroEletronico = new EletronicoEntity(titulo, autores, editora, preco, tamanho);
             livrariaService.cadastrarLivro(livroEletronico);
@@ -249,8 +265,8 @@ public class MenuService {
             }
 
             System.out.println("\nLista de Livros Impressos:\n");
-            System.out.println("| Título               | Autores              | Editora              | Preço      | Frete      | Estoque    |");
-            System.out.println("-------------------------------------------------------------------------------------------------------------");
+            System.out.println("| Título                         | Autores                   | Editora                   | Preço      | Frete      | Estoque    |");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
             livrosImpressos.forEach(System.out::println);
         } else if (tipoLivro.equals("2")) {
             List<EletronicoEntity> livrosEletronicos = livrariaService.listarLivrosEletronicos();
@@ -260,8 +276,8 @@ public class MenuService {
             }
 
             System.out.println("\nLista de Livros Eletrônicos:\n");
-            System.out.println("| Título               | Autores              | Editora              | Preço      | Tamanho    |");
-            System.out.println("------------------------------------------------------------------------------------------------");
+            System.out.println("| Título                         | Autores                   | Editora                   | Preço      | Tamanho    |");
+            System.out.println("--------------------------------------------------------------------------------------------------------------------");
             livrosEletronicos.forEach(System.out::println);
         } else {
             System.out.println("\nOpção inválida. Retornando ao menu principal.");

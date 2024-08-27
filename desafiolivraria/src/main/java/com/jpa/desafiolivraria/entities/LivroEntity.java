@@ -65,7 +65,7 @@ public abstract class LivroEntity {
 
     @Override
     public String toString() {
-        return String.format("| %-20s | %-20s | %-20s | %-10.2f |", titulo, autores, editora, preco);
+        return String.format("| %-30s | %-25s | %-25s | %-10.2f |", titulo, autores, editora, preco);
     }
 
 
