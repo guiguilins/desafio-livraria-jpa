@@ -22,7 +22,6 @@ public class MenuService {
     private LivrariaVirtualService livrariaService;
     private ApplicationContext applicationContext;
 
-
     Scanner scanner = new Scanner(System.in);
 
     public void iniciarMenu() {
@@ -82,7 +81,6 @@ public class MenuService {
 
     }
 
-
     private void realizarVenda() {
         System.out.print("\nNome do cliente: ");
         String cliente = scanner.nextLine();
@@ -90,7 +88,10 @@ public class MenuService {
         System.out.print("\nQuantidade de livros que deseja comprar: ");
         int quantidadeLivros = scanner.nextInt();
         scanner.nextLine();
-
+        if(quantidadeLivros < 1) {
+            System.out.println("A quantidade de livros deve ser maior que 1");
+            return;
+        }
         float valorFinal = 0;
 
         VendaEntity venda = new VendaEntity(cliente, 0);
@@ -103,6 +104,8 @@ public class MenuService {
             int tipoLivro = scanner.nextInt();
             scanner.nextLine();
 
+            LivroEntity livroEscolhido = null;
+
             if (tipoLivro == 1) {
                 List<ImpressoEntity> livrosImpressos = livrariaService.listarLivrosImpressos();
                 exibirLivros(livrosImpressos);
@@ -111,13 +114,12 @@ public class MenuService {
                 int indiceLivro = scanner.nextInt();
                 scanner.nextLine();
 
-                if (indiceLivro >= 0 && indiceLivro < livrosImpressos.size()) {
-                    ImpressoEntity livroEscolhido = livrosImpressos.get(indiceLivro);
-                    venda.addLivro(livroEscolhido, venda.getLivros().size());
-                    valorFinal += livroEscolhido.getPreco();
+                if (indiceLivro >= 1 && indiceLivro <= livrosImpressos.size()) {
+                    livroEscolhido = livrosImpressos.get(indiceLivro - 1);
                 } else {
                     System.out.println("Índice inválido. Tente novamente.");
                     i--;
+                    continue;
                 }
 
             } else if (tipoLivro == 2) {
@@ -128,18 +130,34 @@ public class MenuService {
                 int indiceLivro = scanner.nextInt();
                 scanner.nextLine();
 
-                if (indiceLivro >= 0 && indiceLivro < livrosEletronicos.size()) {
-                    EletronicoEntity livroEscolhido = livrosEletronicos.get(indiceLivro);
-                    venda.addLivro(livroEscolhido, venda.getLivros().size());
-                    valorFinal += livroEscolhido.getPreco();
+                if (indiceLivro >= 1 && indiceLivro <= livrosEletronicos.size()) {
+                    livroEscolhido = livrosEletronicos.get(indiceLivro - 1);
                 } else {
                     System.out.println("Índice inválido. Tente novamente.");
                     i--;
+                    continue;
                 }
 
             } else {
                 System.out.println("Tipo de livro inválido. Tente novamente.");
                 i--;
+                continue;
+            }
+
+            boolean jaAdicionado = false;
+            for (LivroEntity livro : venda.getLivros()) {
+                if (livro.getId().equals(livroEscolhido.getId())) {
+                    jaAdicionado = true;
+                    break;
+                }
+            }
+
+            if (jaAdicionado) {
+                System.out.println("Você já adicionou este livro a compra.");
+                i--;
+            } else {
+                venda.addLivro(livroEscolhido, venda.getLivros().size());
+                valorFinal += livroEscolhido.getPreco();
             }
         }
 
@@ -147,10 +165,9 @@ public class MenuService {
         livrariaService.realizarVenda(venda);
         System.out.println("Obrigado pela compra!");
 
-
     }
 
-	private void exibirLivros(List<? extends LivroEntity> livros) {
+    private void exibirLivros(List<? extends LivroEntity> livros) {
 		   for (int i = 0; i < livros.size(); i++) {
 		       System.out.println((i + 1) + ": " + livros.get(i).getTitulo());
 		   }
