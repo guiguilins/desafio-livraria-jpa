@@ -29,8 +29,7 @@ public class LivroService {
     			.map(l -> (EletronicoEntity) l)
     			.toList(); 
     }
-    
-    
+
     public List<LivroEntity> listarLivros() {
         return repository.findAll();
     }

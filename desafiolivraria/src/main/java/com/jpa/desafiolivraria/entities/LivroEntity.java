@@ -22,7 +22,6 @@ public abstract class LivroEntity {
         this.preco = preco;
     }
 
-
     public Long getId() {
         return id;
     }
@@ -67,6 +66,4 @@ public abstract class LivroEntity {
     public String toString() {
         return String.format("| %-30s | %-25s | %-25s | %-10.2f |", titulo, autores, editora, preco);
     }
-
-
 }
