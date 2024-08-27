@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DesafiolivrariaApplication<desafiolivraria>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.jpa.desafiolivraria.DesafiolivrariaApplication",
+            "projectName": "desafiolivraria",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
