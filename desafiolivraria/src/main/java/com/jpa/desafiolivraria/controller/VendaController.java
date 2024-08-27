@@ -1,7 +1,6 @@
 package com.jpa.desafiolivraria.controller;
 
 
-import com.jpa.desafiolivraria.entities.LivroEntity;
 import com.jpa.desafiolivraria.entities.VendaEntity;
 import com.jpa.desafiolivraria.services.VendaService;
 import org.springframework.beans.factory.annotation.Autowired;
