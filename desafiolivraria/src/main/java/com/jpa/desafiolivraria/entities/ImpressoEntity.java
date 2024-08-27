@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 public class ImpressoEntity extends LivroEntity {
-
     private float frete;
     private int estoque;
 
@@ -21,7 +20,6 @@ public class ImpressoEntity extends LivroEntity {
     public void adicionarEstoque() {
         estoque -= 1;
     }
-
 
     @Override
     public String toString() {

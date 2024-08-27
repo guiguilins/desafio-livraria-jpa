@@ -10,8 +10,6 @@ import com.jpa.desafiolivraria.entities.ImpressoEntity;
 import com.jpa.desafiolivraria.entities.LivroEntity;
 import com.jpa.desafiolivraria.entities.VendaEntity;
 
-import java.util.ArrayList;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -174,9 +172,7 @@ public class MenuService {
 		   }
 	}
 
-
-
-	private void cadastrarLivro() {
+    private void cadastrarLivro() {
         System.out.println("\nEscolha o tipo de livro:");
         System.out.println("1. Impresso");
         System.out.println("2. Eletrônico");
